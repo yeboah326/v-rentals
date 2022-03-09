@@ -1,5 +1,5 @@
 import { SideNavbar } from "../../components/side_navbar/side_navbar";
-import { Background } from "./styles";
+import { Background } from "../../common/styles";
 
 export const Vehicles = () => {
   return (

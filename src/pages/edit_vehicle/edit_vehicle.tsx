@@ -1,10 +1,10 @@
 import { SideNavbar } from "../../components/side_navbar/side_navbar";
 import { Background } from "../../common/styles";
 
-export const Rentals = () => {
+export const EditVehicle = () => {
   return (
     <Background>
-      <SideNavbar rentals={true} />
+        <SideNavbar vehicles={true}/>
     </Background>
   );
 };
