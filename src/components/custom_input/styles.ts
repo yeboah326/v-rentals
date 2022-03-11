@@ -6,4 +6,6 @@ export const SpecialInput = styled.input`
     padding: 1rem;
     width: 100%;
     border: 1px solid black;
+    font-family: "Comfortaa";
+    outline: none;
 `

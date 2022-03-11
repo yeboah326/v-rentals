@@ -3,19 +3,22 @@ type CustomTextType = {
   fontFamiy?: string;
   marginTop?: string;
   marginBottom?: string;
+  color?: string;
   text: string;
 };
 
-export const CustomText = (customTextType: CustomTextType) => {
+export const CustomText = ({fontSize, fontFamiy, marginTop, marginBottom, color, text}: CustomTextType) => {
   return (
     <p
       style={{
-        fontSize: `${customTextType.fontSize}`,
-        fontFamily: `${customTextType.fontFamiy}`,
-        marginTop: `${customTextType.marginTop}`
+        fontSize: `${fontSize}`,
+        fontFamily: `${fontFamiy}`,
+        marginTop: `${marginTop}`,
+        marginBottom: `${marginBottom}`,
+        color: `${color}`
       }}
     >
-      {customTextType.text}
+      {text}
     </p>
   );
 };

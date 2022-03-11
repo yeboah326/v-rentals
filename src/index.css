@@ -6,6 +6,8 @@
 
 :root{
   --Iris-100: #5D5FEF;
+  --Iris-50: rgba(93, 95, 239, 0.5);
+  --Grey: rgb(158, 158, 158);
 }
 
 body {

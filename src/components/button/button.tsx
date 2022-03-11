@@ -1,3 +1,5 @@
+import { ButtonContainer, Icon } from "./styles";
+
 type ButtonType = {
   color?: string;
   fontFamily?: string;
@@ -6,24 +8,33 @@ type ButtonType = {
   border?: string;
   bgColor?: string;
   margin?: string;
+  gap?: string;
   text: string;
+  padding?: string;
+  icon?: any;
+  clicked: Function;
 };
 
-export const Button = (buttonType: ButtonType) => {
+export const Button = (customButtonType: ButtonType) => {
   return (
-    <button
+    <ButtonContainer
       style={{
-        color: `${buttonType.color}`,
-        fontFamily: `${buttonType.fontFamily}`,
-        fontSize: `${buttonType.fontSize}`,
-        borderRadius: `${buttonType.borderRadius}`,
-        border: `${buttonType.border}`,
-        backgroundColor: `${buttonType.bgColor}`,
-        margin: `${buttonType.margin}`,
-        "padding": "0.8rem 1.6rem",
+        gap: `${customButtonType.gap}`,
+        color: `${customButtonType.color}`,
+        fontFamily: `${customButtonType.fontFamily}`,
+        fontSize: `${customButtonType.fontSize}`,
+        borderRadius: `${customButtonType.borderRadius}`,
+        border: `${customButtonType.border}`,
+        backgroundColor: `${customButtonType.bgColor}`,
+        margin: `${customButtonType.margin}`,
+        padding: `${customButtonType.padding}`,
+      }}
+      onClick={() => {
+        customButtonType.clicked();
       }}
     >
-      {buttonType.text}
-    </button>
+      <Icon>{customButtonType.icon}</Icon>
+      {customButtonType.text}
+    </ButtonContainer>
   );
 };

@@ -58,10 +58,10 @@ export const EditCustomer = () => {
           }}
         >
           <div>
-            <CustomInput fieldName="Name" type="text" />
-            <CustomInput fieldName="Email" type="text" />
-            <CustomInput fieldName="Telephone" type="text" />
-            <CustomInput fieldName="Company" type="text" />
+            <CustomInput fieldName="Name" type="text" default="Kwaku Manu"/>
+            <CustomInput fieldName="Email" type="text" default="kmanu@email.com"/>
+            <CustomInput fieldName="Telephone" type="text" default="051 234 5678"/>
+            <CustomInput fieldName="Company" type="text" default="KManu Inc."/>
           </div>
 
           <div
