@@ -52,6 +52,8 @@ export default function Login() {
                   borderRadius="0.3rem"
                   bgColor="var(--Iris-100)"
                   margin="auto 0"
+                  padding="0.8rem 1.6rem"
+                  clicked={()=>{}}
                 />
               </div>
             </LoginBoxForm>
