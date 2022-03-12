@@ -8,7 +8,6 @@ import { CustomInput } from "../../components/custom_input/custom_input";
 import { useNavigate } from "react-router-dom";
 
 export const EditCustomer = () => {
-
   const navigate = useNavigate();
 
   return (
@@ -32,7 +31,9 @@ export const EditCustomer = () => {
             borderRadius="0.3rem"
             padding="0.2rem 0.5rem"
             fontFamily="Comfortaa"
-            clicked={()=>{navigate("/customers")}}
+            clicked={() => {
+              navigate("/customers");
+            }}
           />
           <MdChevronRight style={{ color: "var(--Iris-50)" }} />
           <Button
@@ -43,7 +44,9 @@ export const EditCustomer = () => {
             borderRadius="0.3rem"
             padding="0.2rem 0.5rem"
             fontFamily="Comfortaa"
-            clicked={()=>{navigate("/customers/edit")}}
+            clicked={() => {
+              navigate("/customers/edit");
+            }}
           />
         </div>
         <form
@@ -54,14 +57,22 @@ export const EditCustomer = () => {
             flexWrap: "wrap",
             justifyContent: "space-between",
             columnGap: "3rem",
-            height: "90%"
+            height: "90%",
           }}
         >
           <div>
-            <CustomInput fieldName="Name" type="text" default="Kwaku Manu"/>
-            <CustomInput fieldName="Email" type="text" default="kmanu@email.com"/>
-            <CustomInput fieldName="Telephone" type="text" default="051 234 5678"/>
-            <CustomInput fieldName="Company" type="text" default="KManu Inc."/>
+            <CustomInput fieldName="Name" type="text" default="Kwaku Manu" />
+            <CustomInput
+              fieldName="Email"
+              type="text"
+              default="kmanu@email.com"
+            />
+            <CustomInput
+              fieldName="Telephone"
+              type="text"
+              default="051 234 5678"
+            />
+            <CustomInput fieldName="Company" type="text" default="KManu Inc." />
           </div>
 
           <div
@@ -70,28 +81,27 @@ export const EditCustomer = () => {
               flexDirection: "row-reverse",
             }}
           >
-            <div style={{display:"flex", gap:"1rem"}}>
-
-            <Button
-              text="DELETE"
-              fontFamily="Comfortaa"
-              bgColor="red"
-              color="white"
-              borderRadius="0.5rem"
-              padding="1rem 2.0rem"
-              border="none"
-              clicked={()=>{}}
-            />
-            <Button
-              text="SAVE CHANGES"
-              fontFamily="Comfortaa"
-              bgColor="var(--Iris-100)"
-              color="white"
-              borderRadius="0.5rem"
-              padding="1rem 1.4rem"
-              border="none"
-              clicked={()=>{}}
-            />
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <Button
+                text="DELETE"
+                fontFamily="Comfortaa"
+                bgColor="red"
+                color="white"
+                borderRadius="0.5rem"
+                padding="1rem 2.0rem"
+                border="none"
+                clicked={() => {}}
+              />
+              <Button
+                text="SAVE CHANGES"
+                fontFamily="Comfortaa"
+                bgColor="var(--Iris-100)"
+                color="white"
+                borderRadius="0.5rem"
+                padding="1rem 1.4rem"
+                border="none"
+                clicked={() => {}}
+              />
             </div>
           </div>
         </form>

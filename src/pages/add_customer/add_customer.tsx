@@ -8,13 +8,12 @@ import { CustomInput } from "../../components/custom_input/custom_input";
 import { useNavigate } from "react-router-dom";
 
 export const AddCustomer = () => {
-
   const navigate = useNavigate();
 
   return (
     <Background>
-        <SideNavbar customers={true}/>
-        <Container>
+      <SideNavbar customers={true} />
+      <Container>
         <CustomText
           text="Add Customer"
           fontFamiy="Comfortaa"
@@ -32,7 +31,9 @@ export const AddCustomer = () => {
             borderRadius="0.3rem"
             padding="0.2rem 0.5rem"
             fontFamily="Comfortaa"
-            clicked={()=>{navigate("/customers")}}
+            clicked={() => {
+              navigate("/customers");
+            }}
           />
           <MdChevronRight style={{ color: "var(--Iris-50)" }} />
           <Button
@@ -43,7 +44,9 @@ export const AddCustomer = () => {
             borderRadius="0.3rem"
             padding="0.2rem 0.5rem"
             fontFamily="Comfortaa"
-            clicked={()=>{navigate("/customers/add")}}
+            clicked={() => {
+              navigate("/customers/add");
+            }}
           />
         </div>
         <form
@@ -54,7 +57,7 @@ export const AddCustomer = () => {
             flexWrap: "wrap",
             justifyContent: "space-between",
             columnGap: "3rem",
-            height: "90%"
+            height: "90%",
           }}
         >
           <div>
@@ -78,12 +81,11 @@ export const AddCustomer = () => {
               borderRadius="0.5rem"
               padding="1rem 2.5rem"
               border="none"
-              clicked={()=>{}}
+              clicked={() => {}}
             />
           </div>
         </form>
       </Container>
-
     </Background>
   );
 };

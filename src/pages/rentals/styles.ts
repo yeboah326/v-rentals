@@ -13,3 +13,15 @@ export const Background = styled.div`
         grid-template-rows: repeat(15, 1fr);
     }
 `
+
+export const Container = styled.div`
+    background-color: white;
+    grid-row: 1 / 7;
+    grid-column: 2 / 7;
+    padding: 5rem 1rem 2rem 1rem;
+    
+    @media only screen and (${device.sm}){
+        grid-row: 1 / 16;
+        grid-column: 4 / 16;
+    }
+`

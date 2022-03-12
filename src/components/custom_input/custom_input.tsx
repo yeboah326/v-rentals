@@ -6,6 +6,7 @@ type CustomInputType = {
   width?: string;
   maxWidth?: string;
   default?: string
+  step?: string
 };
 
 export const CustomInput = (customInput: CustomInputType) => {
@@ -21,7 +22,7 @@ export const CustomInput = (customInput: CustomInputType) => {
       <label htmlFor="" style={{ fontSize: "0.8rem" }}>
         {customInput.fieldName}
       </label>
-      <SpecialInput type={customInput.type} defaultValue={customInput.default} />
+      <SpecialInput type={customInput.type} defaultValue={customInput.default} step={customInput.step} />
     </div>
   );
 };
