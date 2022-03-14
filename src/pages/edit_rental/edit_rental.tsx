@@ -32,7 +32,7 @@ export const EditRental = () => {
             padding="0.2rem 0.5rem"
             fontFamily="Comfortaa"
             clicked={() => {
-              navigate("/customers");
+              navigate("/rentals");
             }}
           />
           <MdChevronRight style={{ color: "var(--Iris-50)" }} />
