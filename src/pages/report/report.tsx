@@ -12,37 +12,107 @@ export const Report = () => {
       <Container>
         <CustomText
           text="Report"
-          fontFamiy="Comfortaa"
+          fontFamily="Comfortaa"
           fontSize="1.5rem"
           color="var(--Iris-100)"
         />
-        <div>
-          <CustomText
-            text="Day"
-            marginTop="5em"
-            color="var(--Iris-100)"
-            fontFamiy="Comfortaa"
-          />
-          <form action="" style={{ display: "flex", alignItems: "center" }}>
-            <input type="date"/>
-          </form>
-            <MdDownload cursor={"pointer"} size={40}/>
+        <CustomText
+          text="Date"
+          color="var(--Iris-100)"
+          fontFamily="Comfortaa"
+          marginTop="3rem"
+        />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <CustomInput fieldName="Date" type="date" />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              paddingTop: "3.3em",
+            }}
+          >
+            <div
+              style={{
+                borderRadius: "0.5em",
+                padding: "0.5em",
+                color: "white",
+                backgroundColor: "var(--Iris-100)",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <MdDownload cursor={"pointer"} size={40} style={{}} />
+              <CustomText text="Download" fontFamily="Comfortaa" />
+            </div>
+          </div>
         </div>
-        <div>
-          <CustomText
-            text="Range"
-            color="var(--Iris-100)"
-            fontFamiy="Comfortaa"
-          />
-          <form action=""></form>
+        <CustomText
+          text="Range"
+          color="var(--Iris-100)"
+          fontFamily="Comfortaa"
+          marginTop="3rem"
+        />
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "end",
+          }}
+        >
+          <div style={{ display: "flex", gap: "1em" }}>
+            <CustomInput fieldName="Start" type="date" />
+            <CustomInput fieldName="End" type="date" />
+          </div>
+          <div
+            style={{
+              borderRadius: "0.5em",
+              padding: "0.5em",
+              color: "white",
+              backgroundColor: "var(--Iris-100)",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <MdDownload cursor={"pointer"} size={40} style={{}} />
+            <CustomText text="Download" fontFamily="Comfortaa" />
+          </div>
         </div>
-        <div>
-          <CustomText
-            text="Year"
-            color="var(--Iris-100)"
-            fontFamiy="Comfortaa "
-          />
-          <form action=""></form>
+        <CustomText
+          text="Month"
+          color="var(--Iris-100)"
+          fontFamily="Comfortaa"
+          marginTop="3rem"
+        />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <CustomInput fieldName="Month" type="month" />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              paddingTop: "3.3em",
+            }}
+          >
+            <div
+              style={{
+                borderRadius: "0.5em",
+                padding: "0.5em",
+                color: "white",
+                backgroundColor: "var(--Iris-100)",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <MdDownload cursor={"pointer"} size={40} style={{}} />
+              <CustomText text="Download" fontFamily="Comfortaa" />
+            </div>
+          </div>
         </div>
       </Container>
     </Background>
