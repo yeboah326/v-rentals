@@ -25,16 +25,15 @@ export default function Login() {
             <LoginText>Log into your account</LoginText>
             <LoginBoxForm>
               <div>
-              <CustomInput fieldName="Email" type="text" />
-              <CustomInput fieldName="Password" type="text" />
-              <CustomText
-                text="Don't have an account?"
-                fontFamiy="Comfortaa"
-                fontSize="0.8rem"
-                marginTop="0.7rem"
-                marginBottom="3rem"
-              />
-
+                <CustomInput fieldName="Email" type="text" />
+                <CustomInput fieldName="Password" type="text" />
+                <CustomText
+                  text="Don't have an account?"
+                  fontFamily="Comfortaa"
+                  fontSize="0.8rem"
+                  marginTop="0.7rem"
+                  marginBottom="3rem"
+                />
               </div>
               <div
                 style={{
@@ -53,7 +52,7 @@ export default function Login() {
                   bgColor="var(--Iris-100)"
                   margin="auto 0"
                   padding="0.8rem 1.6rem"
-                  clicked={()=>{}}
+                  clicked={() => {}}
                 />
               </div>
             </LoginBoxForm>

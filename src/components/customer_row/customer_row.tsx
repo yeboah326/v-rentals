@@ -8,19 +8,22 @@ type CustomerRowType = {
 };
 
 export const CustomerRow = (customerRow: CustomerRowType) => {
-
   const navigate = useNavigate();
 
   return (
-    <Container onClick={()=>{navigate("/customers/edit")}}>
+    <Container
+      onClick={() => {
+        navigate("/customers/edit");
+      }}
+    >
       <div style={{ width: "20%" }}>
-        <CustomText text={`${customerRow.name}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${customerRow.name}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "40%" }}>
-        <CustomText text={`${customerRow.email}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${customerRow.email}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "40%" }}>
-        <CustomText text={`${customerRow.company}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${customerRow.company}`} fontFamily="Comfortaa" />
       </div>
     </Container>
   );

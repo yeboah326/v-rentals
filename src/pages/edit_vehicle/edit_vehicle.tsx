@@ -16,7 +16,7 @@ export const EditVehicle = () => {
       <Container>
         <CustomText
           text="Edit Vehicle"
-          fontFamiy="Comfortaa"
+          fontFamily="Comfortaa"
           fontSize="1.5rem"
           color="var(--Iris-100)"
         />

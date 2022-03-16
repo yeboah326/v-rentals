@@ -16,19 +16,19 @@ export const VehicleRow = (vehicleRow: VehicleRowType) => {
   return (
     <Container onClick={() => navigate("/vehicles/edit")}>
       <div style={{ width: "20%" }}>
-        <CustomText text={`${vehicleRow.name}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${vehicleRow.name}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "20%" }}>
-        <CustomText text={`${vehicleRow.regNo}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${vehicleRow.regNo}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "20%" }}>
-        <CustomText text={`${vehicleRow.type}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${vehicleRow.type}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "20%" }}>
-        <CustomText text={`${vehicleRow.charge}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${vehicleRow.charge}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "20%" }}>
-        <CustomText text={`${vehicleRow.penalty}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${vehicleRow.penalty}`} fontFamily="Comfortaa" />
       </div>
     </Container>
   );

@@ -17,7 +17,7 @@ export const Rentals = () => {
       <Container>
         <CustomText
           text="Rentals"
-          fontFamiy="Comfortaa"
+          fontFamily="Comfortaa"
           fontSize="1.5rem"
           color="var(--Iris-100)"
         />
@@ -174,7 +174,6 @@ export const Rentals = () => {
             />
           </div>
         </div>
-
       </Container>
     </Background>
   );

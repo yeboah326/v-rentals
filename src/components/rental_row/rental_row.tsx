@@ -18,18 +18,18 @@ export const RentalRow = (rentalRow: RentalRowType) => {
         navigate("/rentals/edit");
       }}
     >
-      <div style={{ width: "45%", display:"flex", gap:"1rem"}}>
-        <CustomText text={`${rentalRow.name}`} fontFamiy="Comfortaa" />{" "}
-        <CustomText text={`${rentalRow.email}`} fontFamiy="Comfortaa" />
+      <div style={{ width: "45%", display: "flex", gap: "1rem" }}>
+        <CustomText text={`${rentalRow.name}`} fontFamily="Comfortaa" />{" "}
+        <CustomText text={`${rentalRow.email}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "15%" }}>
-        <CustomText text={`${rentalRow.car}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${rentalRow.car}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "15%" }}>
-        <CustomText text={`${rentalRow.start_date}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${rentalRow.start_date}`} fontFamily="Comfortaa" />
       </div>
       <div style={{ width: "15%" }}>
-        <CustomText text={`${rentalRow.total_charge}`} fontFamiy="Comfortaa" />
+        <CustomText text={`${rentalRow.total_charge}`} fontFamily="Comfortaa" />
       </div>
     </Container>
   );

@@ -3,17 +3,12 @@ import { Background } from "../../common/styles";
 import { Container } from "./styles";
 import { CustomText } from "../../components/custom_text/custom_text";
 import { Button } from "../../components/button/button";
-import {
-  MdAdd,
-  MdChevronLeft,
-  MdChevronRight,
-} from "react-icons/md";
+import { MdAdd, MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { CustomerRow } from "../../components/customer_row/customer_row";
 import { PageButton } from "../../components/page_button/page_button";
 import { useNavigate } from "react-router-dom";
 
 export const Customers = () => {
-
   const navigate = useNavigate();
 
   return (
@@ -22,7 +17,7 @@ export const Customers = () => {
       <Container>
         <CustomText
           text="Customers"
-          fontFamiy="Comfortaa"
+          fontFamily="Comfortaa"
           fontSize="1.5rem"
           color="var(--Iris-100)"
         />
@@ -42,7 +37,9 @@ export const Customers = () => {
             borderRadius="0.3rem"
             padding="0.2rem 0.5rem"
             fontFamily="Comfortaa"
-            clicked={()=>{navigate("/customers")}}
+            clicked={() => {
+              navigate("/customers");
+            }}
           />
           <Button
             text="ADD CUSTOMER"
@@ -55,7 +52,9 @@ export const Customers = () => {
             fontSize="1.1rem"
             fontFamily="Comfortaa"
             gap="0.5rem"
-            clicked={()=>{navigate("/customers/add")}}
+            clicked={() => {
+              navigate("/customers/add");
+            }}
           />
         </div>
         <div
@@ -97,7 +96,6 @@ export const Customers = () => {
             name="Kwaku Manu"
             email="kmanu@email.com"
             company="KManu Inc."
-            
           />
           <CustomerRow
             name="Kwaku Manu"

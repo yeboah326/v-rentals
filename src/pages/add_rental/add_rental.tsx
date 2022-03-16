@@ -16,7 +16,7 @@ export const AddRental = () => {
       <Container>
         <CustomText
           text="Add Rental"
-          fontFamiy="Comfortaa"
+          fontFamily="Comfortaa"
           fontSize="1.5rem"
           color="var(--Iris-100)"
         />
@@ -63,8 +63,8 @@ export const AddRental = () => {
           <div>
             <CustomInput fieldName="Customer" type="text" />
             <CustomInput fieldName="Car" type="text" />
-            <CustomInput fieldName="Start date" type="date"/>
-            <CustomInput fieldName="End date" type="date"/>
+            <CustomInput fieldName="Start date" type="date" />
+            <CustomInput fieldName="End date" type="date" />
             <CustomInput fieldName="Total charge" type="number" step="0.01" />
           </div>
 

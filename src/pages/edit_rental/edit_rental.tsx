@@ -16,7 +16,7 @@ export const EditRental = () => {
       <Container>
         <CustomText
           text="Edit Rentals"
-          fontFamiy="Comfortaa"
+          fontFamily="Comfortaa"
           fontSize="1.5rem"
           color="var(--Iris-100)"
         />
@@ -78,7 +78,12 @@ export const EditRental = () => {
               default="2022-03-22"
             />
 
-            <CustomInput fieldName="Total charge" type="number" default="1204.34" step="0.01"  />
+            <CustomInput
+              fieldName="Total charge"
+              type="number"
+              default="1204.34"
+              step="0.01"
+            />
           </div>
 
           <div

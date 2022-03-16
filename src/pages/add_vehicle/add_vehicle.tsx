@@ -16,7 +16,7 @@ export const AddVehicle = () => {
       <Container>
         <CustomText
           text="Add Vehicle"
-          fontFamiy="Comfortaa"
+          fontFamily="Comfortaa"
           fontSize="1.5rem"
           color="var(--Iris-100)"
         />
@@ -64,8 +64,12 @@ export const AddVehicle = () => {
             <CustomInput fieldName="Name" type="text" />
             <CustomInput fieldName="Registration Number" type="text" />
             <CustomInput fieldName="Type" type="text" />
-            <CustomInput fieldName="Cost per hour" type="number" step="0.01"/>
-            <CustomInput fieldName="Penalty per hour" type="number" step="0.01" />
+            <CustomInput fieldName="Cost per hour" type="number" step="0.01" />
+            <CustomInput
+              fieldName="Penalty per hour"
+              type="number"
+              step="0.01"
+            />
           </div>
 
           <div
