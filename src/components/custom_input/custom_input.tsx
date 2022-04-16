@@ -9,9 +9,14 @@ type CustomInputType = {
   step?: string;
   min?: number;
   max?: number;
+  registerFieldName?: string;
+  registerField: Function;
 };
 
 export const CustomInput = (customInput: CustomInputType) => {
+
+
+  
   return (
     <div
       style={{
@@ -21,7 +26,7 @@ export const CustomInput = (customInput: CustomInputType) => {
         maxWidth: `${customInput.maxWidth}`,
       }}
     >
-      <label htmlFor="" style={{ fontSize: "0.8rem" }}>
+      <label style={{ fontSize: "0.8rem" }}>
         {customInput.fieldName}
       </label>
       <SpecialInput
@@ -30,6 +35,7 @@ export const CustomInput = (customInput: CustomInputType) => {
         step={customInput.step}
         min={customInput.min}
         max={customInput.max}
+        {...customInput.registerField(customInput.registerFieldName)}
       />
     </div>
   );
