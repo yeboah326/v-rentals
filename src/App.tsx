@@ -14,13 +14,32 @@ import { AddRental } from "./pages/add_rental/add_rental";
 import { EditRental } from "./pages/edit_rental/edit_rental";
 import { Report } from "./pages/report/report";
 
+// Providers
+import { AuthProvider } from "./services/auth.service";
+
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          {/* Auth */}
+
+          <Route
+            path="/login"
+            element={
+              <AuthProvider>
+                <Login />
+              </AuthProvider>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <AuthProvider>
+                <Signup />
+              </AuthProvider>
+            }
+          />
           <Route path="/dashboard" element={<Dashboard />} />
 
           {/* Vehicles */}
@@ -35,8 +54,8 @@ function App() {
 
           {/* Rentals */}
           <Route path="/rentals" element={<Rentals />} />
-          <Route path="/rentals/add" element={<AddRental/>}/>
-          <Route path="/rentals/edit" element={<EditRental/>}/>
+          <Route path="/rentals/add" element={<AddRental />} />
+          <Route path="/rentals/edit" element={<EditRental />} />
 
           <Route path="/report" element={<Report />} />
         </Routes>
