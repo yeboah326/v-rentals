@@ -4,8 +4,11 @@ import { Container } from "./styles";
 import { CustomText } from "../../components/custom_text/custom_text";
 import { CustomInput } from "../../components/custom_input/custom_input";
 import { MdDownload } from "react-icons/md";
+import { useForm } from "react-hook-form";
 
 export const Report = () => {
+  const { register } = useForm();
+
   return (
     <Background>
       <SideNavbar report={true} />
@@ -29,7 +32,12 @@ export const Report = () => {
             justifyContent: "space-between",
           }}
         >
-          <CustomInput fieldName="Date" type="date" />
+          <CustomInput
+            fieldName="Date"
+            type="date"
+            registerFieldName="date"
+            registerField={register}
+          />
           <div
             style={{
               display: "flex",
@@ -67,8 +75,18 @@ export const Report = () => {
           }}
         >
           <div style={{ display: "flex", gap: "1em" }}>
-            <CustomInput fieldName="Start" type="date" />
-            <CustomInput fieldName="End" type="date" />
+            <CustomInput
+              fieldName="Start"
+              type="date"
+              registerFieldName="start"
+              registerField={register}
+            />
+            <CustomInput
+              fieldName="End"
+              type="date"
+              registerFieldName="end"
+              registerField={register}
+            />
           </div>
           <div
             style={{
@@ -91,7 +109,12 @@ export const Report = () => {
           marginTop="3rem"
         />
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <CustomInput fieldName="Month" type="month" />
+          <CustomInput
+            fieldName="Month"
+            type="month"
+            registerFieldName="month"
+            registerField={register}
+          />
           <div
             style={{
               display: "flex",

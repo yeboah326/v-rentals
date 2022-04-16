@@ -6,9 +6,11 @@ import { Button } from "../../components/button/button";
 import { MdChevronRight } from "react-icons/md";
 import { CustomInput } from "../../components/custom_input/custom_input";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export const EditVehicle = () => {
   const navigate = useNavigate();
+  const { register } = useForm();
 
   return (
     <Background>
@@ -61,18 +63,34 @@ export const EditVehicle = () => {
           }}
         >
           <div>
-            <CustomInput fieldName="Name" type="text" default="Tata Sumo" />
+            <CustomInput
+              fieldName="Name"
+              type="text"
+              default="Tata Sumo"
+              registerFieldName="name"
+              registerField={register}
+            />
             <CustomInput
               fieldName="Registration Number"
               type="text"
               default="GX-123-22"
+              registerFieldName="registration_number"
+              registerField={register}
             />
-            <CustomInput fieldName="Type" type="text" default="SUV" />
+            <CustomInput
+              fieldName="Type"
+              type="text"
+              default="SUV"
+              registerFieldName="type"
+              registerField={register}
+            />
             <CustomInput
               fieldName="Penalty per hour"
               type="number"
               default="1.50"
               step="0.01"
+              registerFieldName="penalty_per_hour"
+              registerField={register}
             />
 
             <CustomInput
@@ -80,6 +98,8 @@ export const EditVehicle = () => {
               type="number"
               default="20.0"
               step="0.01"
+              registerFieldName="cost_per_hour"
+              registerField={register}
             />
           </div>
 

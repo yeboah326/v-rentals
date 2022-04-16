@@ -6,9 +6,11 @@ import { Button } from "../../components/button/button";
 import { useNavigate } from "react-router-dom";
 import { MdChevronRight } from "react-icons/md";
 import { CustomInput } from "../../components/custom_input/custom_input";
+import { useForm } from "react-hook-form";
 
 export const AddVehicle = () => {
   const navigate = useNavigate();
+  const { register } = useForm();
 
   return (
     <Background>
@@ -61,14 +63,37 @@ export const AddVehicle = () => {
           }}
         >
           <div>
-            <CustomInput fieldName="Name" type="text" />
-            <CustomInput fieldName="Registration Number" type="text" />
-            <CustomInput fieldName="Type" type="text" />
-            <CustomInput fieldName="Cost per hour" type="number" step="0.01" />
+            <CustomInput
+              fieldName="Name"
+              type="text"
+              registerFieldName="name"
+              registerField={register}
+            />
+            <CustomInput
+              fieldName="Registration Number"
+              type="text"
+              registerFieldName="registration_number"
+              registerField={register}
+            />
+            <CustomInput
+              fieldName="Type"
+              type="text"
+              registerFieldName="type"
+              registerField={register}
+            />
+            <CustomInput
+              fieldName="Cost per hour"
+              type="number"
+              step="0.01"
+              registerFieldName="cost_per_hour"
+              registerField={register}
+            />
             <CustomInput
               fieldName="Penalty per hour"
               type="number"
               step="0.01"
+              registerFieldName="penalty_per_hour"
+              registerField={register}
             />
           </div>
 

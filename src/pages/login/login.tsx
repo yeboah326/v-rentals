@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Background,
   LoginBox,
@@ -10,8 +11,21 @@ import {
 import { CustomInput } from "../../components/custom_input/custom_input";
 import { CustomText } from "../../components/custom_text/custom_text";
 import { Button } from "../../components/button/button";
+// Providers and Contexts
+import { AuthContext } from "../../services/auth.service";
+import { authenticateUserProps, AuthContextType } from "../../@types/auth";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 export default function Login() {
+  const { register, handleSubmit } = useForm<authenticateUserProps>();
+
+  // Function provided by the context
+  const { authenticateUser } = React.useContext(AuthContext) as AuthContextType;
+
+  // // Function to handle form submission
+  const onSubmit: SubmitHandler<authenticateUserProps> = (data) =>
+    authenticateUser(data);
+
   return (
     <div>
       <Background>
@@ -23,10 +37,20 @@ export default function Login() {
               <p style={{ color: "var(--Iris-100)" }}>v-rental</p>
             </WelcomeText>
             <LoginText>Log into your account</LoginText>
-            <LoginBoxForm>
+            <LoginBoxForm onSubmit={handleSubmit(onSubmit)}>
               <div>
-                <CustomInput fieldName="Email" type="text" />
-                <CustomInput fieldName="Password" type="text" />
+                <CustomInput
+                  fieldName="Email"
+                  type="text"
+                  registerFieldName="email"
+                  registerField={register}
+                />
+                <CustomInput
+                  fieldName="Password"
+                  type="password"
+                  registerFieldName="password"
+                  registerField={register}
+                />
                 <CustomText
                   text="Don't have an account?"
                   fontFamily="Comfortaa"

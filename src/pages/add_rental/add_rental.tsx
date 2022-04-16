@@ -6,9 +6,11 @@ import { Button } from "../../components/button/button";
 import { MdChevronRight } from "react-icons/md";
 import { CustomInput } from "../../components/custom_input/custom_input";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export const AddRental = () => {
   const navigate = useNavigate();
+  const { register } = useForm();
 
   return (
     <Background>
@@ -61,11 +63,37 @@ export const AddRental = () => {
           }}
         >
           <div>
-            <CustomInput fieldName="Customer" type="text" />
-            <CustomInput fieldName="Car" type="text" />
-            <CustomInput fieldName="Start date" type="date" />
-            <CustomInput fieldName="End date" type="date" />
-            <CustomInput fieldName="Total charge" type="number" step="0.01" />
+            <CustomInput
+              fieldName="Customer"
+              type="text"
+              registerFieldName="customer"
+              registerField={register}
+            />
+            <CustomInput
+              fieldName="Car"
+              type="text"
+              registerFieldName="car"
+              registerField={register}
+            />
+            <CustomInput
+              fieldName="Start date"
+              type="date"
+              registerFieldName="start_date"
+              registerField={register}
+            />
+            <CustomInput
+              fieldName="End date"
+              type="date"
+              registerFieldName="end_date"
+              registerField={register}
+            />
+            <CustomInput
+              fieldName="Total charge"
+              type="number"
+              step="0.01"
+              registerFieldName="total_charge"
+              registerField={register}
+            />
           </div>
 
           <div

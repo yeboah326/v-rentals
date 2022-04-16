@@ -6,9 +6,11 @@ import { Button } from "../../components/button/button";
 import { MdChevronRight } from "react-icons/md";
 import { CustomInput } from "../../components/custom_input/custom_input";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export const EditCustomer = () => {
   const navigate = useNavigate();
+  const { register } = useForm();
 
   return (
     <Background>
@@ -61,18 +63,34 @@ export const EditCustomer = () => {
           }}
         >
           <div>
-            <CustomInput fieldName="Name" type="text" default="Kwaku Manu" />
+            <CustomInput
+              fieldName="Name"
+              type="text"
+              default="Kwaku Manu"
+              registerFieldName="name"
+              registerField={register}
+            />
             <CustomInput
               fieldName="Email"
               type="text"
               default="kmanu@email.com"
+              registerFieldName="email"
+              registerField={register}
             />
             <CustomInput
               fieldName="Telephone"
               type="text"
               default="051 234 5678"
+              registerFieldName="telephone"
+              registerField={register}
             />
-            <CustomInput fieldName="Company" type="text" default="KManu Inc." />
+            <CustomInput
+              fieldName="Company"
+              type="text"
+              default="KManu Inc."
+              registerFieldName="company"
+              registerField={register}
+            />
           </div>
 
           <div
