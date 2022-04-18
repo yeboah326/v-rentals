@@ -1,7 +1,7 @@
 export interface createUserProps {
   email: string;
-  password: string;
   username: string;
+  password: string;
 }
 
 export interface authenticateUserProps {

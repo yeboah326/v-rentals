@@ -42,16 +42,16 @@ export default function SignUp() {
                   registerFieldName="email"
                   registerField={register}
                 />
+                  <CustomInput
+                    fieldName="Username"
+                    type="text"
+                    registerFieldName="username"
+                    registerField={register}
+                  />
                 <CustomInput
                   fieldName="Password"
                   type="password"
                   registerFieldName="password"
-                  registerField={register}
-                />
-                <CustomInput
-                  fieldName="Confirm password"
-                  type="password"
-                  registerFieldName="confirm_password"
                   registerField={register}
                 />
                 <CustomText

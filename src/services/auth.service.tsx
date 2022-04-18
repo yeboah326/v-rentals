@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import {
   createUserProps,
   authenticateUserProps,
@@ -11,18 +11,16 @@ export const AuthContext = React.createContext<AuthContextType | null>(null);
 const API_URL = process.env.REACT_APP_API_URL;
 
 export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
-  async function createUser({ email, password, username }: createUserProps) {
+  async function createUser({ email, username, password }: createUserProps) {
     try {
-      const response = await axios.post(API_URL + "/auth/", {
+      const response = await axios.post(API_URL + "/auth/create", {
         email,
-        password,
         username,
+        password,
       });
-      if (response.status === 200) {
-        console.log("User created successfully");
-      }
+      return response;
     } catch (error) {
-      console.error(error);
+      console.error((error as AxiosError)?.response?.data);
     }
   }
 
@@ -32,17 +30,20 @@ export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
         email,
         password,
       });
-      if (response.status === 200) {
-        console.log("User authenticated successfully");
-      }
+      localStorage.setItem(
+        "user",
+        response.status === 200 ? JSON.stringify(response.data) : ""
+      );
+      console.log(response.data);
+      
     } catch (error) {
-      console.error(error);
+      console.error((error as AxiosError)?.response?.data);
     }
   }
 
   return (
-    <AuthContext.Provider
-      value={{ createUser, authenticateUser }}
-    >{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ createUser, authenticateUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
