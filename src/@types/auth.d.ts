@@ -12,4 +12,5 @@ export interface authenticateUserProps {
 export type AuthContextType = {
   createUser: ({ email, password, username }: createUserProps) => void;
   authenticateUser: ({ email, password }: authenticateUserProps) => void;
+  logoutUser: () => void;
 };

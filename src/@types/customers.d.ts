@@ -5,6 +5,22 @@ export interface createCustomerProps {
   telephone: string;
 }
 
+export interface modifyCustomerProps {
+  company: string;
+  email: string;
+  name: string;
+  telephone: string;
+  id: string;
+}
+
+export interface getCustomerProps {
+  id: number;
+}
+
+export interface deleteCustomerProps {
+  id: number;
+}
+
 export type CustomerContextType = {
   createCustomer: ({
     company,
@@ -12,4 +28,13 @@ export type CustomerContextType = {
     name,
     telephone,
   }: createCustomerProps) => void;
+  modifyCustomerById: ({
+    company,
+    email,
+    name,
+    telephone,
+  }: modifyCustomerProps) => void;
+  getCustomerById: ({ id }: getCustomerProps) => void;
+  getAllCustomers: () => void;
+  deleteCustomerById: ({ id }: deleteCustomerProps) => void;
 };
