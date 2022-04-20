@@ -9,6 +9,10 @@ import {
   MdAnalytics,
   MdLogout,
 } from "react-icons/md";
+// Context & Hooks
+import { AuthContext } from "../../services/auth.service";
+import { AuthContextType } from "../../@types/auth";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 type SideNavbarActiveType = {
@@ -27,6 +31,8 @@ export const SideNavbar = ({
   report = false,
 }: SideNavbarActiveType) => {
   const navigate = useNavigate();
+
+  const { logoutUser } = useContext(AuthContext) as AuthContextType;
 
   return (
     <Container>
@@ -67,7 +73,7 @@ export const SideNavbar = ({
       <NavbarOption
         text="Logout"
         icon={<MdLogout />}
-        clicked={() => navigate("/dashboard")}
+        clicked={() => {logoutUser()}}
       />
     </Container>
   );

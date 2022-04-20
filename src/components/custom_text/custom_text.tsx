@@ -5,6 +5,7 @@ type CustomTextType = {
   marginBottom?: string;
   color?: string;
   text: string;
+  clicked?: ()=>void;
 };
 
 export const CustomText = ({
@@ -14,6 +15,7 @@ export const CustomText = ({
   marginBottom,
   color,
   text,
+  clicked
 }: CustomTextType) => {
   return (
     <p
@@ -23,7 +25,8 @@ export const CustomText = ({
         marginTop: `${marginTop}`,
         marginBottom: `${marginBottom}`,
         color: `${color}`,
-      }}
+        cursor: "pointer",
+      }} onClick={clicked}
     >
       {text}
     </p>

@@ -2,6 +2,7 @@ import { MdCarRental, MdDirectionsCar, MdPerson } from "react-icons/md";
 import { CustomText } from "../../components/custom_text/custom_text";
 import { SideNavbar } from "../../components/side_navbar/side_navbar";
 import { Background, Container, DashboardCard } from "./styles";
+// Contexts & Hooks
 import { useNavigate } from "react-router-dom";
 
 type DashboardType = {

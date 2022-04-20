@@ -11,11 +11,14 @@ import React from "react";
 import { CustomInput } from "../../components/custom_input/custom_input";
 import { CustomText } from "../../components/custom_text/custom_text";
 import { Button } from "../../components/button/button";
+// Contextx & Hooks
 import { SubmitHandler, useForm } from "react-hook-form";
 import { createUserProps, AuthContextType } from "../../@types/auth";
 import { AuthContext } from "../../services/auth.service";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm<createUserProps>();
 
   // Functions provided by the context
@@ -60,6 +63,7 @@ export default function SignUp() {
                   fontSize="0.8rem"
                   marginTop="0.7rem"
                   marginBottom="3rem"
+                  clicked={()=>{navigate("/login")}}
                 />
               </div>
               <div

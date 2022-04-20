@@ -13,54 +13,46 @@ import { Rentals } from "./pages/rentals/rentals";
 import { AddRental } from "./pages/add_rental/add_rental";
 import { EditRental } from "./pages/edit_rental/edit_rental";
 import { Report } from "./pages/report/report";
+// Toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Providers
 import { AuthProvider } from "./services/auth.service";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          {/* Auth */}
+    <div className="App">
+      <Router>
+        <AuthProvider>
+          <Routes>
+            {/* Auth */}
 
-          <Route
-            path="/login"
-            element={
-              <AuthProvider>
-                <Login />
-              </AuthProvider>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <AuthProvider>
-                <Signup />
-              </AuthProvider>
-            }
-          />
-          <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/dashboard" element={<Dashboard />} />
 
-          {/* Vehicles */}
-          <Route path="/vehicles" element={<Vehicles />} />
-          <Route path="/vehicles/add" element={<AddVehicle />} />
-          <Route path="/vehicles/edit" element={<EditVehicle />} />
+            {/* Vehicles */}
+            <Route path="/vehicles" element={<Vehicles />} />
+            <Route path="/vehicles/add" element={<AddVehicle />} />
+            <Route path="/vehicles/edit" element={<EditVehicle />} />
 
-          {/* Customers */}
-          <Route path="/customers" element={<Customers />} />
-          <Route path="/customers/add" element={<AddCustomer />} />
-          <Route path="/customers/edit" element={<EditCustomer />} />
+            {/* Customers */}
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/customers/add" element={<AddCustomer />} />
+            <Route path="/customers/edit" element={<EditCustomer />} />
 
-          {/* Rentals */}
-          <Route path="/rentals" element={<Rentals />} />
-          <Route path="/rentals/add" element={<AddRental />} />
-          <Route path="/rentals/edit" element={<EditRental />} />
+            {/* Rentals */}
+            <Route path="/rentals" element={<Rentals />} />
+            <Route path="/rentals/add" element={<AddRental />} />
+            <Route path="/rentals/edit" element={<EditRental />} />
 
-          <Route path="/report" element={<Report />} />
-        </Routes>
-      </div>
-    </Router>
+            <Route path="/report" element={<Report />} />
+          </Routes>
+        </AuthProvider>
+      </Router>
+      <ToastContainer/>
+    </div>
   );
 }
 
