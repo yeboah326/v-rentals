@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContextType } from "../@types/auth";
 import {
   createCustomerProps,
   getCustomerProps,
@@ -8,6 +10,7 @@ import {
   deleteCustomerProps,
   CustomerContextType,
 } from "../@types/customers";
+import { AuthContext } from "./auth.service";
 
 export const CustomerContext = React.createContext<CustomerContextType | null>(
   null
@@ -16,6 +19,10 @@ export const CustomerContext = React.createContext<CustomerContextType | null>(
 const API_URL = process.env.REACT_APP_API_URL;
 
 export const CustomerProvider: React.FC<React.ReactNode> = ({ children }) => {
+  const { getToken } = React.useContext(AuthContext) as AuthContextType;
+
+  const navigate = useNavigate();
+
   async function createCustomer({
     company,
     email,
@@ -23,14 +30,19 @@ export const CustomerProvider: React.FC<React.ReactNode> = ({ children }) => {
     telephone,
   }: createCustomerProps) {
     try {
-      const response = await axios.post(API_URL + "/customer/", {
-        company,
-        email,
-        name,
-        telephone,
-      });
+      const response = await axios.post(
+        API_URL + "/customer/",
+        {
+          company,
+          email,
+          name,
+          telephone,
+        },
+        { headers: { Authorization: `Bearer ${getToken()}` } }
+      );
       if (response.status === 201) {
         toast("Account created sucessfully");
+        navigate("/customers")
         return response;
       }
     } catch (error) {
@@ -63,7 +75,9 @@ export const CustomerProvider: React.FC<React.ReactNode> = ({ children }) => {
 
   async function getCustomerById({ id }: getCustomerProps) {
     try {
-      const response = await axios.get(API_URL + `/customer/${id}`);
+      const response = await axios.get(API_URL + `/customer/${id}`, {
+        headers: { Authorization: `Bearer ${"g"}` },
+      });
       if (response.status === 200) {
         return response;
       }
@@ -71,14 +85,21 @@ export const CustomerProvider: React.FC<React.ReactNode> = ({ children }) => {
       console.error(error);
     }
   }
+
   async function getAllCustomers() {
     try {
-      const response = await axios.get(API_URL + "/customer");
+      const response = await axios.get(API_URL + "/customer/", {
+        headers: { Authorization: `Bearer ${getToken()}` },
+      });
       if (response.status === 200) {
+        console.log(response);
         return response;
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
+
   async function deleteCustomerById({ id }: deleteCustomerProps) {
     try {
       const response = await axios.get(API_URL + `/customer/${id}`);
@@ -97,6 +118,8 @@ export const CustomerProvider: React.FC<React.ReactNode> = ({ children }) => {
         getAllCustomers,
         deleteCustomerById,
       }}
-    ></CustomerContext.Provider>
+    >
+      {children}
+    </CustomerContext.Provider>
   );
 };

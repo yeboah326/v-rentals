@@ -48,6 +48,14 @@ export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
     }
   }
 
+  function isAuthenticated() {
+    return localStorage.getItem("user") ? true : false;
+  }
+
+  function getToken(){
+    return JSON.parse(localStorage?.getItem("user") as string).token;
+  }
+
   function logoutUser() {
     localStorage.clear();
     navigate("/login");
@@ -55,7 +63,7 @@ export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ createUser, authenticateUser, logoutUser }}>
+    <AuthContext.Provider value={{ createUser, authenticateUser, isAuthenticated, getToken, logoutUser }}>
       {children}
     </AuthContext.Provider>
   );
