@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 // Providers
 import { AuthProvider } from "./services/auth.service";
+import { CustomerProvider } from "./services/customers.service";
 
 function App() {
   return (
@@ -38,9 +39,30 @@ function App() {
             <Route path="/vehicles/edit" element={<EditVehicle />} />
 
             {/* Customers */}
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/customers/add" element={<AddCustomer />} />
-            <Route path="/customers/edit" element={<EditCustomer />} />
+            <Route
+              path="/customers"
+              element={
+                <CustomerProvider>
+                  <Customers />
+                </CustomerProvider>
+              }
+            />
+            <Route
+              path="/customers/add"
+              element={
+                <CustomerProvider>
+                  <AddCustomer />
+                </CustomerProvider>
+              }
+            />
+            <Route
+              path="/customers/edit"
+              element={
+                <CustomerProvider>
+                  <EditCustomer />
+                </CustomerProvider>
+              }
+            />
 
             {/* Rentals */}
             <Route path="/rentals" element={<Rentals />} />
@@ -51,7 +73,7 @@ function App() {
           </Routes>
         </AuthProvider>
       </Router>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
