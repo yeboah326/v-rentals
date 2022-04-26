@@ -1,3 +1,4 @@
+import React from "react";
 import { SideNavbar } from "../../components/side_navbar/side_navbar";
 import { Background } from "../../common/styles";
 import { Container } from "./styles";
@@ -7,9 +8,26 @@ import { MdAdd, MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { CustomerRow } from "../../components/customer_row/customer_row";
 import { PageButton } from "../../components/page_button/page_button";
 import { useNavigate } from "react-router-dom";
-
+import { CustomerContext } from "../../services/customers.service";
+import { CustomerContextType, customers } from "../../@types/customers";
 export const Customers = () => {
   const navigate = useNavigate();
+
+  const { getAllCustomers } = React.useContext(
+    CustomerContext
+  ) as CustomerContextType;
+
+  const [customers, setCustomers] = React.useState<customers | []>([]);
+
+  // const getAllCustomersData = aysnc () => {
+
+  // }
+
+  React.useEffect(() => {
+    getAllCustomers()
+      .then((response) => setCustomers(response?.data.customers))
+      .catch((error) => console.error(error));
+  }, [getAllCustomers]);
 
   return (
     <Background>
@@ -77,31 +95,15 @@ export const Customers = () => {
             minHeight: "70%",
           }}
         >
-          <CustomerRow
-            name="Kwaku Manu"
-            email="kmanu@email.com"
-            company="KManu Inc."
-          />
-          <CustomerRow
-            name="Kwaku Manu"
-            email="kmanu@email.com"
-            company="KManu Inc."
-          />
-          <CustomerRow
-            name="Kwaku Manu"
-            email="kmanu@email.com"
-            company="KManu Inc."
-          />
-          <CustomerRow
-            name="Kwaku Manu"
-            email="kmanu@email.com"
-            company="KManu Inc."
-          />
-          <CustomerRow
-            name="Kwaku Manu"
-            email="kmanu@email.com"
-            company="KManu Inc."
-          />
+          {customers.map((customer) => {
+            return (
+              <CustomerRow
+                name={customer.name}
+                email={customer.email}
+                company={customer.company}
+              />
+            );
+          })}
         </div>
         <div
           style={{

@@ -1,3 +1,4 @@
+import React from "react";
 import { SideNavbar } from "../../components/side_navbar/side_navbar";
 import { Background } from "../../common/styles";
 import { Container } from "./styles";
@@ -6,11 +7,20 @@ import { Button } from "../../components/button/button";
 import { MdChevronRight } from "react-icons/md";
 import { CustomInput } from "../../components/custom_input/custom_input";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+// Contexts
+import { CustomerContext } from "../../services/customers.service";
+import { createCustomerProps, CustomerContextType } from "../../@types/customers";
 
 export const AddCustomer = () => {
   const navigate = useNavigate();
-  const { register } = useForm();
+  
+  const { register, handleSubmit } = useForm<createCustomerProps>();
+
+  const { createCustomer } = React.useContext(CustomerContext) as CustomerContextType;
+
+  const onSubmit: SubmitHandler<createCustomerProps> = (data) => createCustomer(data);
+  
 
   return (
     <Background>
@@ -61,6 +71,7 @@ export const AddCustomer = () => {
             columnGap: "3rem",
             height: "90%",
           }}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <div>
             <CustomInput
