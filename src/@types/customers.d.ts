@@ -1,25 +1,25 @@
 import { AxiosResponse } from "axios";
 
-export interface createCustomerProps {
+export interface CreateCustomerProps {
   company: string;
   email: string;
   name: string;
   telephone: string;
 }
 
-export interface modifyCustomerProps {
+export interface EditCustomerProps {
   company: string;
   email: string;
   name: string;
   telephone: string;
-  id: string;
-}
-
-export interface getCustomerProps {
   id: number;
 }
 
-export interface deleteCustomerProps {
+export interface GetCustomerProps {
+  id: number;
+}
+
+export interface DeleteCustomerProps {
   id: number;
 }
 
@@ -30,18 +30,18 @@ export type CustomerContextType = {
     name,
     telephone,
   }: createCustomerProps) => void;
-  modifyCustomerById: ({
+  editCustomerById: ({
     company,
     email,
     name,
     telephone,
-  }: modifyCustomerProps) => void;
+  }: EditCustomerProps) => void;
   getCustomerById: ({ id }: getCustomerProps) => void;
   getAllCustomers: () => Promise<AxiosResponse<any, any> | undefined>;
   deleteCustomerById: ({ id }: deleteCustomerProps) => void;
 };
 
-export interface customer {
+export interface CustomerObject {
   company: string;
   email: string;
   id: number;
@@ -49,4 +49,4 @@ export interface customer {
   telephone: string;
 }
 
-export interface customers extends Array<customer> {}
+export interface CustomerObjects extends Array<CustomerObject> {}
