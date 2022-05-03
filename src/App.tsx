@@ -1,18 +1,17 @@
-import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./pages/login/login";
-import Signup from "./pages/signup/signup";
-import { Dashboard } from "./pages/dashboard/dashboard";
-import { Vehicles } from "./pages/vehicles/vehicles";
-import { AddVehicle } from "./pages/add_vehicle/add_vehicle";
-import { EditVehicle } from "./pages/edit_vehicle/edit_vehicle";
-import { Customers } from "./pages/customers/customers";
 import { AddCustomer } from "./pages/add_customer/add_customer";
-import { EditCustomer } from "./pages/edit_customer/edit_customer";
-import { Rentals } from "./pages/rentals/rentals";
 import { AddRental } from "./pages/add_rental/add_rental";
+import { AddVehicle } from "./pages/add_vehicle/add_vehicle";
+import { Customers } from "./pages/customers/customers";
+import { Dashboard } from "./pages/dashboard/dashboard";
+import { EditCustomer } from "./pages/edit_customer/edit_customer";
 import { EditRental } from "./pages/edit_rental/edit_rental";
+import { EditVehicle } from "./pages/edit_vehicle/edit_vehicle";
+import Login from "./pages/login/login";
+import { Rentals } from "./pages/rentals/rentals";
 import { Report } from "./pages/report/report";
+import Signup from "./pages/signup/signup";
+import { Vehicles } from "./pages/vehicles/vehicles";
 // Toastify
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -20,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 // Providers
 import { AuthProvider } from "./services/auth.service";
 import { CustomerProvider } from "./services/customers.service";
+import { VehicleProvider } from "./services/vehicles.service";
 
 function App() {
   return (
@@ -34,9 +34,30 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
 
             {/* Vehicles */}
-            <Route path="/vehicles" element={<Vehicles />} />
-            <Route path="/vehicles/add" element={<AddVehicle />} />
-            <Route path="/vehicles/edit" element={<EditVehicle />} />
+            <Route
+              path="/vehicles"
+              element={
+                <VehicleProvider>
+                  <Vehicles />
+                </VehicleProvider>
+              }
+            />
+            <Route
+              path="/vehicles/add"
+              element={
+                <VehicleProvider>
+                  <AddVehicle />
+                </VehicleProvider>
+              }
+            />
+            <Route
+              path="/vehicles/edit"
+              element={
+                <VehicleProvider>
+                  <EditVehicle />
+                </VehicleProvider>
+              }
+            />
 
             {/* Customers */}
             <Route
