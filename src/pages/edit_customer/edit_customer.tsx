@@ -1,18 +1,15 @@
 import React from "react";
-import { SideNavbar } from "../../components/side_navbar/side_navbar";
-import { Background } from "../../common/styles";
-import { Container } from "./styles";
-import { CustomText } from "../../components/custom_text/custom_text";
-import { Button } from "../../components/button/button";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { MdChevronRight } from "react-icons/md";
+import { useLocation, useNavigate } from "react-router-dom";
+import { CustomerContextType, EditCustomerProps } from "../../@types/customers";
+import { Background } from "../../common/styles";
+import { Button } from "../../components/button/button";
 import { CustomInput } from "../../components/custom_input/custom_input";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useForm, SubmitHandler } from "react-hook-form";
-import {
-  CustomerContextType,
-  EditCustomerProps,
-} from "../../@types/customers";
+import { CustomText } from "../../components/custom_text/custom_text";
+import { SideNavbar } from "../../components/side_navbar/side_navbar";
 import { CustomerContext } from "../../services/customers.service";
+import { Container } from "./styles";
 
 export const EditCustomer = () => {
   const navigate = useNavigate();
@@ -128,7 +125,9 @@ export const EditCustomer = () => {
                 borderRadius="0.5rem"
                 padding="1rem 2.0rem"
                 border="none"
-                clicked={() => {deleteCustomerById({id: state.id})}}
+                clicked={() => {
+                  deleteCustomerById({ id: state.id });
+                }}
               />
               <Button
                 text="SAVE CHANGES"

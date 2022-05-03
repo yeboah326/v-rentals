@@ -1,26 +1,31 @@
 import React from "react";
-import { SideNavbar } from "../../components/side_navbar/side_navbar";
-import { Background } from "../../common/styles";
-import { Container } from "./styles";
-import { CustomText } from "../../components/custom_text/custom_text";
-import { Button } from "../../components/button/button";
-import { MdChevronRight } from "react-icons/md";
-import { CustomInput } from "../../components/custom_input/custom_input";
-import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { MdChevronRight } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { Background } from "../../common/styles";
+import { Button } from "../../components/button/button";
+import { CustomInput } from "../../components/custom_input/custom_input";
+import { CustomText } from "../../components/custom_text/custom_text";
+import { SideNavbar } from "../../components/side_navbar/side_navbar";
+import { Container } from "./styles";
 // Contexts
+import {
+  CreateCustomerProps,
+  CustomerContextType,
+} from "../../@types/customers";
 import { CustomerContext } from "../../services/customers.service";
-import { CreateCustomerProps, CustomerContextType } from "../../@types/customers";
 
 export const AddCustomer = () => {
   const navigate = useNavigate();
-  
+
   const { register, handleSubmit } = useForm<CreateCustomerProps>();
 
-  const { createCustomer } = React.useContext(CustomerContext) as CustomerContextType;
+  const { createCustomer } = React.useContext(
+    CustomerContext
+  ) as CustomerContextType;
 
-  const onSubmit: SubmitHandler<CreateCustomerProps> = (data) => createCustomer(data);
-  
+  const onSubmit: SubmitHandler<CreateCustomerProps> = (data) =>
+    createCustomer(data);
 
   return (
     <Background>

@@ -1,15 +1,15 @@
 import React from "react";
-import { SideNavbar } from "../../components/side_navbar/side_navbar";
-import { Background } from "../../common/styles";
-import { Container } from "./styles";
-import { CustomText } from "../../components/custom_text/custom_text";
-import { Button } from "../../components/button/button";
 import { MdAdd, MdChevronLeft, MdChevronRight } from "react-icons/md";
-import { CustomerRow } from "../../components/customer_row/customer_row";
-import { PageButton } from "../../components/page_button/page_button";
 import { useNavigate } from "react-router-dom";
-import { CustomerContext } from "../../services/customers.service";
 import { CustomerContextType, CustomerObjects } from "../../@types/customers";
+import { Background } from "../../common/styles";
+import { Button } from "../../components/button/button";
+import { CustomerRow } from "../../components/customer_row/customer_row";
+import { CustomText } from "../../components/custom_text/custom_text";
+import { PageButton } from "../../components/page_button/page_button";
+import { SideNavbar } from "../../components/side_navbar/side_navbar";
+import { CustomerContext } from "../../services/customers.service";
+import { Container } from "./styles";
 
 export const Customers = () => {
   const navigate = useNavigate();

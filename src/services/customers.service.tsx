@@ -5,10 +5,10 @@ import { toast } from "react-toastify";
 import { AuthContextType } from "../@types/auth";
 import {
   CreateCustomerProps,
-  GetCustomerProps,
-  EditCustomerProps,
-  DeleteCustomerProps,
   CustomerContextType,
+  DeleteCustomerProps,
+  EditCustomerProps,
+  GetCustomerProps,
 } from "../@types/customers";
 import { AuthContext } from "./auth.service";
 
@@ -40,7 +40,7 @@ export const CustomerProvider: React.FC<React.ReactNode> = ({ children }) => {
         },
         { headers: { Authorization: `Bearer ${getToken()}` } }
       );
-      console.log(response)
+      console.log(response);
       if (response.status === 201) {
         toast("Customer created sucessfully");
         navigate("/customers");
