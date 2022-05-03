@@ -1,30 +1,30 @@
+import React from "react";
+import { Button } from "../../components/button/button";
+import { CustomInput } from "../../components/custom_input/custom_input";
+import { CustomText } from "../../components/custom_text/custom_text";
 import {
   Background,
   SignupBox,
+  SignupBoxForm,
   SignupBoxImage,
   SignupBoxText,
-  SignupBoxForm,
-  WelcomeText,
   SignupText,
+  WelcomeText,
 } from "./styles";
-import React from "react";
-import { CustomInput } from "../../components/custom_input/custom_input";
-import { CustomText } from "../../components/custom_text/custom_text";
-import { Button } from "../../components/button/button";
 // Contextx & Hooks
 import { SubmitHandler, useForm } from "react-hook-form";
-import { createUserProps, AuthContextType } from "../../@types/auth";
-import { AuthContext } from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
+import { AuthContextType, CreateUserProps } from "../../@types/auth";
+import { AuthContext } from "../../services/auth.service";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm<createUserProps>();
+  const { register, handleSubmit } = useForm<CreateUserProps>();
 
   // Functions provided by the context
   const { createUser } = React.useContext(AuthContext) as AuthContextType;
 
-  const onSubmit: SubmitHandler<createUserProps> = (data) => createUser(data);
+  const onSubmit: SubmitHandler<CreateUserProps> = (data) => createUser(data);
 
   return (
     <div>
@@ -45,12 +45,12 @@ export default function SignUp() {
                   registerFieldName="email"
                   registerField={register}
                 />
-                  <CustomInput
-                    fieldName="Username"
-                    type="text"
-                    registerFieldName="username"
-                    registerField={register}
-                  />
+                <CustomInput
+                  fieldName="Username"
+                  type="text"
+                  registerFieldName="username"
+                  registerField={register}
+                />
                 <CustomInput
                   fieldName="Password"
                   type="password"
@@ -63,7 +63,9 @@ export default function SignUp() {
                   fontSize="0.8rem"
                   marginTop="0.7rem"
                   marginBottom="3rem"
-                  clicked={()=>{navigate("/login")}}
+                  clicked={() => {
+                    navigate("/login");
+                  }}
                 />
               </div>
               <div

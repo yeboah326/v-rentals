@@ -1,12 +1,12 @@
-import React from "react";
 import axios, { AxiosError } from "axios";
-import {
-  createUserProps,
-  authenticateUserProps,
-  AuthContextType,
-} from "../@types/auth";
-import { toast } from "react-toastify";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import {
+  AuthContextType,
+  AuthenticateUserProps,
+  CreateUserProps,
+} from "../@types/auth";
 
 export const AuthContext = React.createContext<AuthContextType | null>(null);
 
@@ -15,7 +15,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
   const navigate = useNavigate();
 
-  async function createUser({ email, username, password }: createUserProps) {
+  async function createUser({ email, username, password }: CreateUserProps) {
     try {
       const response = await axios.post(API_URL + "/auth/create", {
         email,
@@ -31,7 +31,7 @@ export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
     }
   }
 
-  async function authenticateUser({ email, password }: authenticateUserProps) {
+  async function authenticateUser({ email, password }: AuthenticateUserProps) {
     try {
       const response = await axios.post(API_URL + "/auth/authenticate", {
         email,
@@ -52,7 +52,7 @@ export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
     return localStorage.getItem("user") ? true : false;
   }
 
-  function getToken(){
+  function getToken() {
     return JSON.parse(localStorage?.getItem("user") as string).token;
   }
 
@@ -63,7 +63,15 @@ export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ createUser, authenticateUser, isAuthenticated, getToken, logoutUser }}>
+    <AuthContext.Provider
+      value={{
+        createUser,
+        authenticateUser,
+        isAuthenticated,
+        getToken,
+        logoutUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -1,31 +1,31 @@
 import React from "react";
+import { Button } from "../../components/button/button";
+import { CustomInput } from "../../components/custom_input/custom_input";
+import { CustomText } from "../../components/custom_text/custom_text";
 import {
   Background,
   LoginBox,
+  LoginBoxForm,
   LoginBoxImage,
   LoginBoxText,
-  LoginBoxForm,
-  WelcomeText,
   LoginText,
+  WelcomeText,
 } from "./styles";
-import { CustomInput } from "../../components/custom_input/custom_input";
-import { CustomText } from "../../components/custom_text/custom_text";
-import { Button } from "../../components/button/button";
 // Contexts & Hooks
-import { AuthContext } from "../../services/auth.service";
-import { authenticateUserProps, AuthContextType } from "../../@types/auth";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { AuthContextType, AuthenticateUserProps } from "../../@types/auth";
+import { AuthContext } from "../../services/auth.service";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm<authenticateUserProps>();
+  const { register, handleSubmit } = useForm<AuthenticateUserProps>();
 
   // Function provided by the context
   const { authenticateUser } = React.useContext(AuthContext) as AuthContextType;
 
   // // Function to handle form submission
-  const onSubmit: SubmitHandler<authenticateUserProps> = (data) =>
+  const onSubmit: SubmitHandler<AuthenticateUserProps> = (data) =>
     authenticateUser(data);
 
   return (
@@ -59,7 +59,7 @@ export default function Login() {
                   fontSize="0.8rem"
                   marginTop="0.7rem"
                   marginBottom="3rem"
-                  clicked={()=>navigate("/signup")}
+                  clicked={() => navigate("/signup")}
                 />
               </div>
               <div

@@ -1,10 +1,10 @@
-export interface createUserProps {
+export interface CreateUserProps {
   email: string;
   username: string;
   password: string;
 }
 
-export interface authenticateUserProps {
+export interface AuthenticateUserProps {
   email: string;
   password: string;
 }
