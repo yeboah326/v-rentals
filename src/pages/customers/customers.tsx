@@ -9,7 +9,8 @@ import { CustomerRow } from "../../components/customer_row/customer_row";
 import { PageButton } from "../../components/page_button/page_button";
 import { useNavigate } from "react-router-dom";
 import { CustomerContext } from "../../services/customers.service";
-import { CustomerContextType, customers } from "../../@types/customers";
+import { CustomerContextType, CustomerObjects } from "../../@types/customers";
+
 export const Customers = () => {
   const navigate = useNavigate();
 
@@ -17,11 +18,7 @@ export const Customers = () => {
     CustomerContext
   ) as CustomerContextType;
 
-  const [customers, setCustomers] = React.useState<customers | []>([]);
-
-  // const getAllCustomersData = aysnc () => {
-
-  // }
+  const [customers, setCustomers] = React.useState<CustomerObjects | []>([]);
 
   React.useEffect(() => {
     getAllCustomers()
@@ -101,6 +98,8 @@ export const Customers = () => {
                 name={customer.name}
                 email={customer.email}
                 company={customer.company}
+                telephone={customer.telephone}
+                id={customer.id}
               />
             );
           })}

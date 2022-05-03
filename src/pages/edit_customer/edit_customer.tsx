@@ -1,3 +1,4 @@
+import React from "react";
 import { SideNavbar } from "../../components/side_navbar/side_navbar";
 import { Background } from "../../common/styles";
 import { Container } from "./styles";
@@ -5,12 +6,30 @@ import { CustomText } from "../../components/custom_text/custom_text";
 import { Button } from "../../components/button/button";
 import { MdChevronRight } from "react-icons/md";
 import { CustomInput } from "../../components/custom_input/custom_input";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useForm, SubmitHandler } from "react-hook-form";
+import {
+  CustomerContextType,
+  EditCustomerProps,
+} from "../../@types/customers";
+import { CustomerContext } from "../../services/customers.service";
 
 export const EditCustomer = () => {
   const navigate = useNavigate();
-  const { register } = useForm();
+
+  const location = useLocation();
+  const state = location.state as EditCustomerProps;
+
+  const { editCustomerById, deleteCustomerById } = React.useContext(
+    CustomerContext
+  ) as CustomerContextType;
+
+  const { register, handleSubmit } = useForm<EditCustomerProps>();
+
+  const onSubmit: SubmitHandler<EditCustomerProps> = (data) => {
+    data.id = state.id;
+    editCustomerById(data);
+  };
 
   return (
     <Background>
@@ -61,33 +80,34 @@ export const EditCustomer = () => {
             columnGap: "3rem",
             height: "90%",
           }}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <div>
             <CustomInput
               fieldName="Name"
               type="text"
-              default="Kwaku Manu"
+              default={state.name}
               registerFieldName="name"
               registerField={register}
             />
             <CustomInput
               fieldName="Email"
               type="text"
-              default="kmanu@email.com"
+              default={state.email}
               registerFieldName="email"
               registerField={register}
             />
             <CustomInput
               fieldName="Telephone"
               type="text"
-              default="051 234 5678"
+              default={state.telephone}
               registerFieldName="telephone"
               registerField={register}
             />
             <CustomInput
               fieldName="Company"
               type="text"
-              default="KManu Inc."
+              default={state.company}
               registerFieldName="company"
               registerField={register}
             />
@@ -108,7 +128,7 @@ export const EditCustomer = () => {
                 borderRadius="0.5rem"
                 padding="1rem 2.0rem"
                 border="none"
-                clicked={() => {}}
+                clicked={() => {deleteCustomerById({id: state.id})}}
               />
               <Button
                 text="SAVE CHANGES"

@@ -10,16 +10,16 @@ import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 // Contexts
 import { CustomerContext } from "../../services/customers.service";
-import { createCustomerProps, CustomerContextType } from "../../@types/customers";
+import { CreateCustomerProps, CustomerContextType } from "../../@types/customers";
 
 export const AddCustomer = () => {
   const navigate = useNavigate();
   
-  const { register, handleSubmit } = useForm<createCustomerProps>();
+  const { register, handleSubmit } = useForm<CreateCustomerProps>();
 
   const { createCustomer } = React.useContext(CustomerContext) as CustomerContextType;
 
-  const onSubmit: SubmitHandler<createCustomerProps> = (data) => createCustomer(data);
+  const onSubmit: SubmitHandler<CreateCustomerProps> = (data) => createCustomer(data);
   
 
   return (
