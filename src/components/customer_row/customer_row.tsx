@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { CustomText } from "../custom_text/custom_text";
 import { Container } from "./styles";
+
 type CustomerRowType = {
   name: string;
   email: string;
   company: string;
+  telephone: string;
+  id: number;
 };
 
 export const CustomerRow = (customerRow: CustomerRowType) => {
@@ -13,7 +16,15 @@ export const CustomerRow = (customerRow: CustomerRowType) => {
   return (
     <Container
       onClick={() => {
-        navigate("/customers/edit");
+        navigate("/customers/edit", {
+          state: {
+            name: customerRow.name,
+            email: customerRow.email,
+            company: customerRow.company,
+            telephone: customerRow.telephone,
+            id: customerRow.id
+          },
+        });
       }}
     >
       <div style={{ width: "20%" }}>
