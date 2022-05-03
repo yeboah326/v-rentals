@@ -100,6 +100,7 @@ export const Customers = () => {
                 company={customer.company}
                 telephone={customer.telephone}
                 id={customer.id}
+                key={customer.id}
               />
             );
           })}

@@ -42,7 +42,6 @@ export const AuthProvider: React.FC<React.ReactNode> = ({ children }) => {
         navigate("/dashboard");
         toast("Login successful");
       }
-      console.log(response.data);
     } catch (error) {
       console.error((error as AxiosError)?.response?.data);
     }
