@@ -19,7 +19,6 @@ import "react-toastify/dist/ReactToastify.css";
 // Providers
 import { AuthProvider } from "./services/auth.service";
 import { CustomerProvider } from "./services/customers.service";
-import { VehicleProvider } from "./services/vehicles.service";
 
 function App() {
   return (
@@ -37,25 +36,19 @@ function App() {
             <Route
               path="/vehicles"
               element={
-                <VehicleProvider>
                   <Vehicles />
-                </VehicleProvider>
               }
             />
             <Route
               path="/vehicles/add"
               element={
-                <VehicleProvider>
                   <AddVehicle />
-                </VehicleProvider>
               }
             />
             <Route
               path="/vehicles/edit"
               element={
-                <VehicleProvider>
                   <EditVehicle />
-                </VehicleProvider>
               }
             />
 
